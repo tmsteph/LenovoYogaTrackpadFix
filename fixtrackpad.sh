@@ -30,12 +30,12 @@ while true; do
     idle_time_ms=\$(xprintidle)
     idle_time_s=\$((idle_time_ms / 1000))
 
-    if [ \$idle_time_s -ge 5 ]; then
+    if [ \$idle_time_s -ge .1 ]; then
         xinput set-prop 19 \"Device Enabled\" 0
         sleep 0.1
         xinput set-prop 19 \"Device Enabled\" 1
     fi
-    sleep 1
+    sleep .5
 done" > "$script_path"
 
 # Make the script executable
